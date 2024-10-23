@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Campeonato</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Cadastrar Campeonato</h1>
+    <form action="/campeonatos/cadastrar" method="POST">
+        <label for="nome">Nome do Campeonato:</label>
+        <input type="text" name="nome" id="nome" required><br><br>
+        
+        <label for="tipo">Modelo do Campeonato:</label>
+        <select name="tipo" id="tipo" required>
+            <option value="fase_de_grupos">Fase de Grupos</option>
+            <option value="mata_mata">Mata-Mata</option>
+            <option value="fase_de_grupos_mata_mata">Fase de Grupos + Mata-Mata</option>
+        </select><br><br>
+        
+        <label for="times">Selecione os Times:</label><br>
+        <select name="times" id="times" multiple required>
+            <% times.forEach(function(time) { %>
+                <option value="<%= time._id %>"><%= time.nome %></option>
+            <% }); %>
+        </select><br><br>
+        
+        <button type="submit">Cadastrar Campeonato</button>
+    </form>
+</body>
+</html>

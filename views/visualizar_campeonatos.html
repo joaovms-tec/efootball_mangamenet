@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar Campeonatos</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Campeonatos Criados</h1>
+    <ul>
+        <% campeonatos.forEach(function(campeonato) { %>
+            <li><a href="/campeonatos/<%= campeonato._id %>"><%= campeonato.nome %></a></li>
+        <% }); %>
+    </ul>
+</body>
+</html>

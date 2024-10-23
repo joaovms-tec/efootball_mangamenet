@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Time</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Cadastrar Time</h1>
+    <form action="/times/cadastrar" method="POST">
+        <label for="nome">Nome do Time:</label>
+        <input type="text" name="nome" id="nome" required><br><br>
+        
+        <label for="dono">Player (Dono do Time):</label>
+        <select name="dono" id="dono" required>
+            <% players.forEach(function(player) { %>
+                <option value="<%= player._id %>"><%= player.nome %></option>
+            <% }); %>
+        </select><br><br>
+        
+        <button type="submit">Cadastrar Time</button>
+    </form>
+</body>
+</html>
